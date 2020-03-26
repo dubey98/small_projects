@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="shiv dubey"/>
+        <title>RPS-game</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <header>
+            <h1>ROCK PAPER SCISSOR</h1>
+            <p>make a choice</p>
+        </header>
+        <main class="container">
+            <div id="rock">
+                <button id="ROCK">ROCK</button>
+            </div>
+            <div class="paper">
+                <button id="PAPER">PAPER</button>
+            </div>
+            <div class="scissor">
+                <button id="SCISSOR">SCISSOR</button>
+            </div>
+        </main>
+        <footer>
+            <div >
+                Current score tally
+            </div>
+            <div class="score_container">
+                <div class="scorecard1">
+                    <div >Computer Score:</div>
+                    <div style="font: bolder;font-size: 25px;" id="computerscore"></div>
+                </div>
+                <div>
+                    <div id="tieCondition" class="scorecard1"></div>
+                </div>
+                <div class="scorecard2">
+                    <div>Player Score:</div>
+                    <div style="font: bolder;font-size: 25px;" id="playerscore"></div>
+                </div>
+                
+            </div>
+            <div id="result" class="result">
+
+            </div>
+        </footer>
+        <script src="script.js"></script>  
+    </body>
+</html>

@@ -1,0 +1,50 @@
+body{
+    background-color: rgba(251, 255, 0, 0.411);
+
+}
+header{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    background-color: rgba(251, 255, 0, 0.253);
+    padding: 10px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+}
+button{
+    background-color:rgba(255, 123, 0, 0.363);
+    display: flexbox;
+    height: 300px;
+    width:175px;
+    justify-content: center;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 500;
+}
+footer{
+    display: block;
+    width:100%;
+    text-align: center;
+    padding: 20px;
+}
+.scorecard1{
+    display: block;
+    background-color: white;
+    height: 100px;
+    width: 100px;
+}
+.scorecard2{
+    display: block;
+    background-color: white;
+    height: 100px;
+    width: 100px;
+}
+.score_container{
+    display: flex;
+    justify-content: space-around;
+}
