@@ -35,7 +35,6 @@ function operate(num_1,num_2,operator){
     }
 }
 function process(input){
-    console.log(input);
 }
 function calculator(){
     const button = document.querySelectorAll('button');
@@ -82,9 +81,6 @@ function calculator(){
                 }
             }
         });
-        // button.addEventListener('mouseover',(e)=>{
-        //     button.style.cssText  = "background-color:yellow;";
-        // });
     });
 }
 calculator();

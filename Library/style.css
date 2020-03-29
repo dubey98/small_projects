@@ -1,0 +1,11 @@
+table{
+    margin: auto;
+}
+th{
+    padding: 10px;
+    background-color: lightblue;
+}
+td{
+    text-align: center;
+    padding: 2px;
+}
