@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <table border="2">
+        <h1>Welcome to the Library</h1>
+        <table>
             <thead>
                 <th class="table_head">Book name</th>
                 <th class="table_head">Book Author</th>
@@ -16,7 +17,25 @@
                 <th class="table_head">Read Status</th>
             </thead>
         </table>
-        <a href="form.html">Add a new Book</a>
+        <form name="newBook" >
+            <h3>Add a New Book</h3>
+            <label for="bookName">Book's name:</label>
+            <input type="text" name="bookName" id="name" required><br>
+
+            <label for="author">Book's author:</label>
+            <input type="text" name="author" id="author" required><br>
+
+            <label for="pages">No. of Pages:</label>
+            <input type="number" name="pages" id="pages" required><br>
+
+            <label >Have read yet?</label>
+            <label for="yes">Read</label>
+            <input type="radio" name="status" id="yes" value="yes">
+            <label for="no">Not read yet:</label>
+            <input type="radio" name="status" id="no" value="no"><br>            
+
+            <input type="submit" value="Add Book" id="sub"><br>
+        </form>
     </div>
 </body>
 <script src="script.js"></script>

@@ -1,11 +1,39 @@
+h1{
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+.container{
+    margin: auto;
+    background-color: khaki;
+    color: maroon;
+}
 table{
     margin: auto;
+    border: 2px solid black;
+    width: 100%;
+}
+button{
+    margin: 2px;
+    border: 1px solid black;
+    padding: 4px;
+    border-radius: 2px;
+    background-color: lightblue;
 }
 th{
     padding: 10px;
     background-color: lightblue;
+    overflow: hidden;
 }
 td{
     text-align: center;
-    padding: 2px;
+}
+form{
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+input{
+    margin: 5px;
+    font-size:16px ;
 }
