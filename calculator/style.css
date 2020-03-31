@@ -1,51 +1,64 @@
-.header{
-    height: auto;
-    padding : 10px;
-    text-align: center;
-    color:rgba(40, 163, 245,1);
+body {
+    background-color: lightsalmon;
 }
-.container{
+
+.header {
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    color: black;
+}
+
+.container {
     width: 400px;
     margin: auto;
     padding: 10px;
-    border: 2px solid rgba(40, 163, 245,1);
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
 }
-.display{
+
+.display {
     height: 50px;
     width: 395;
-    background-color: rgba(40, 163, 245,0.6);
+    background-color: rgba(40, 163, 245, 0.6);
     text-align: right;
     font-size: 36px;
-    border: 2px solid rgba(40, 163, 245,1);
+    border: 2px solid rgba(40, 163, 245, 1);
     margin: 2px;
     border-radius: 10px;
     padding: 5px;
 }
-.container_inside{
+
+.container_inside {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     height: 350px;
 }
-button{
+
+button {
     padding: 5px;
     margin: 2px;
-    flex-grow:1 ;
+    flex-grow: 1;
     text-align: center;
     font-size: 32px;
     width: 95px;
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
-.operation{
-    background-color: rgba(40, 163, 245,1);
+
+.operation {
+    background-color: rgba(40, 163, 245, 1);
 }
-.break-col{
+
+.break-col {
     flex-basis: 100%;
 }
-#plus{
+
+#plus {
     flex-grow: 5;
 }
-#equal{
+
+#equal {
     flex-grow: 5;
 }
