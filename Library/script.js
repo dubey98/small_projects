@@ -1,18 +1,19 @@
 // Declared an array where the Book Objects are to be stored
-if (!localStorage.getItem('myLibrary')) {
+if (!localStorage.getItem('Library')) {
     populateStorage();
 } else {
     addBookToLibrary();
 }
 
 function populateStorage() {
-    let myLibrary = [];
-    localStorage.setItem('myLibrary', myLibrary);
+    let currentLibrary = [];
+    localStorage.setItem('Library', JSON.stringify(currentLibrary));
     addBookToLibrary();
 }
 
 function addBookToLibrary() {
-    let myLibrary = localStorage.getItem('myLibrary');
+    let Library = localStorage.getItem('Library');
+    let myLibrary = JSON.parse(Library);
     class Book {
         //Constructor for the Book Class
         constructor(title, author, pages, read) {
@@ -30,7 +31,6 @@ function addBookToLibrary() {
             } else {
                 this.read = false;
             }
-            render();
         }
         //function to get the readstatus of the Book
         getStatus() {
@@ -46,7 +46,6 @@ function addBookToLibrary() {
         for (let i = 0; i < pre.length; i++) {
             pre[i].remove();
         }
-
         //Looping through all the Books in myLibrary array
         for (let i = 0; i < myLibrary.length; i++) {
             //creating a new row element
@@ -69,6 +68,7 @@ function addBookToLibrary() {
                 let temp = e.toElement.id;
                 let i = parseInt(temp);
                 myLibrary.splice(i, 1);
+                localStorage.setItem('Library', JSON.stringify(myLibrary));
                 render();
             });
 
@@ -81,11 +81,9 @@ function addBookToLibrary() {
             new_row.appendChild(readStatus);
             readStatus.addEventListener('click', (e) => {
                 let i = parseInt(e.toElement.id);
-                if (myLibrary[i].getStatus()) {
-                    myLibrary[i].readStatus();
-                } else {
-                    myLibrary[i].readStatus();
-                }
+                myLibrary[i].readStatus();
+                localStorage.setItem('Library', JSON.stringify(myLibrary));
+                render();
             });
 
             new_row.classList.add('tableRow');
@@ -93,17 +91,20 @@ function addBookToLibrary() {
         }
     }
     //function for adding books to library from the form 
-    document.forms.newBook.addEventListener('submit', function handleform(e) {
+    document.forms.newBook.addEventListener('submit', (e) => handleform());
+
+    function handleform(e) {
         let form = document.forms.newBook;
         let newBook = new Book(form.elements.name.value,
             form.elements.author.value,
             form.elements.pages.value,
             form.elements.status.value);
         myLibrary.push(newBook);
-        localStorage.setitem();
+        console.log(newBook);
+        localStorage.setItem('Library', JSON.stringify(myLibrary));
         //prevents the form from refreshing which causes the loass of data stored
         e.preventDefault();
         render();
-    });
+    }
     render();
 }
