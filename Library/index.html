@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Welcome to the Library</h1>
@@ -17,7 +19,7 @@
                 <th class="table_head">Read Status</th>
             </thead>
         </table>
-        <form name="newBook" >
+        <form name="newBook">
             <h3>Add a New Book</h3>
             <label for="bookName">Book's name:</label>
             <input type="text" name="bookName" id="name" required><br>
@@ -28,15 +30,16 @@
             <label for="pages">No. of Pages:</label>
             <input type="number" name="pages" id="pages" required><br>
 
-            <label >Have read yet?</label>
+            <label>Have read yet?</label>
             <label for="yes">Read</label>
             <input type="radio" name="status" id="yes" value="yes">
             <label for="no">Not read yet:</label>
-            <input type="radio" name="status" id="no" value="no"><br>            
+            <input type="radio" name="status" id="no" value="no"><br>
 
             <input type="submit" value="Add Book" id="sub"><br>
         </form>
     </div>
 </body>
 <script src="script.js"></script>
+
 </html>

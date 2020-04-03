@@ -1,39 +1,46 @@
-h1{
+h1 {
     margin: auto;
     text-align: center;
     padding: 10px;
 }
-.container{
+
+.container {
     margin: auto;
     background-color: khaki;
     color: maroon;
 }
-table{
+
+table {
     margin: auto;
     border: 2px solid black;
     width: 100%;
 }
-button{
+
+button {
     margin: 2px;
     border: 1px solid black;
     padding: 4px;
     border-radius: 2px;
     background-color: lightblue;
 }
-th{
+
+th {
     padding: 10px;
     background-color: lightblue;
     overflow: hidden;
 }
-td{
+
+td {
     text-align: center;
 }
-form{
+
+form {
     margin: auto;
     text-align: center;
     padding: 10px;
 }
-input{
+
+input {
     margin: 5px;
-    font-size:16px ;
+    font-size: 16px;
 }
