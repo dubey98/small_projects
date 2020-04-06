@@ -43,19 +43,27 @@ const Gameboard = (() => {
     }
     return 0;
   };
+  const reset = () => {
+    for (var i = 0; i <= 9; i++) {
+      gameboard[i] = "";
+      displayController.update();
+    }
+  }
   return {
     getContent,
     setContent,
     checkWinner,
+    reset,
   };
 })();
 
 const playerFactory = (name, sign) => {
-  const score = 0;
+  let score = 0;
   const getSign = () => sign;
   const getName = () => name;
   const getScore = () => score;
   const checkWin = () => {
+    if (Gameboard.checkWinner(sign)) score++;
     return Gameboard.checkWinner(sign);
   };
   return {
@@ -70,57 +78,97 @@ const displayController = (() => {
   const gamePad = document.querySelector(".gamepad");
   const render = () => {
     for (let i = 1; i < 10; i++) {
-      const box = document.createElement("div");
-      box.classList.add("box");
-      box.setAttribute("id", `${i}`);
-      box.innerHTML = Gameboard.getContent(i);
-      gamePad.appendChild(box);
+      const gamebox = document.createElement("div");
+      gamebox.classList.add("gamebox");
+      gamebox.setAttribute("id", `${i}`);
+      gamebox.innerHTML = Gameboard.getContent(i);
+      gamePad.appendChild(gamebox);
     }
   };
   const update = () => {
-    const box = document.querySelectorAll(".box");
+    const gamebox = document.querySelectorAll(".gamebox");
     let i = 1;
-    box.forEach((box) => {
-      box.innerHTML = Gameboard.getContent(i);
+    gamebox.forEach((gamebox) => {
+      gamebox.innerHTML = Gameboard.getContent(i);
       i++;
     });
   };
-  const name = (name) => {
-    const player = document.querySelector(".player");
+  const updatePlayer = (player) => {
+    let sign = player.getSign();
+
+    if (sign === 'X') {
+      const name = document.querySelector('.name1');
+      name.innerHTML = player.getName();
+      const score = document.querySelector('.score1');
+      score.innerHTML = "Score : " + player.getScore();
+    } else {
+      const name = document.querySelector('.name2');
+      name.innerHTML = player.getName();
+      const score = document.querySelector('.score2');
+      score.innerHTML = "Score : " + player.getScore();
+    }
   };
   return {
     render,
     update,
+    updatePlayer,
   };
 })();
 
-function getInput(s = "0") {
-  let str = `player${s}`;
-  const playerName = prompt(`Enter the name of ${str}`, str);
-  return playerName;
-}
-
 function game() {
   displayController.render();
-  let player1 = playerFactory(getInput(), "X");
-  let player2 = playerFactory(getInput(), "O");
-  let box = document.querySelectorAll(".box");
+
+  function getInput(s) {
+    let str = "player" + s;
+    const playerName = prompt(`Enter the name of ${str}`, str);
+    return playerName;
+  }
+
+  let player1 = playerFactory(getInput("X"), "X");
+  displayController.updatePlayer(player1);
+  let player2 = playerFactory(getInput("O"), "O");
+  displayController.updatePlayer(player2);
+  let gamebox = document.querySelectorAll(".gamebox");
   let counter = 1;
-  box.forEach((box) => {
-    box.addEventListener("click", (e) => {
+  const result = document.querySelector('.result');
+  result.innerHTML = `${player1.getName()}'s turn`;
+  result.style.cssText = "background-color:indigo;";
+  gamebox.forEach((gamebox) => {
+    gamebox.addEventListener("click", (e) => {
       let index = e.toElement.id;
       if (Gameboard.getContent(index) === "") {
         counter++;
         Gameboard.setContent(counter, index);
+        if (counter % 2 == 1) {
+          result.innerHTML = `${player1.getName()}'s turn`;
+          result.style.cssText = "background-color:indigo;";
+        } else {
+          result.innerHTML = `${player2.getName()}'s turn`;
+          result.style.cssText = "background-color:red;";
+        }
+        if (counter === 10) {
+          Gameboard.reset();
+          result.innerHTML = "Resetting the game!";
+          result.style.cssText = "background-color:gold";
+          counter = 1;
+        }
         displayController.update();
       } else {
-        alert("Wrong Spot!");
+        result.innerHTML = "THAT BOX IS TAKEN!";
       }
       if (player1.checkWin()) {
-        alert(`${player1.getName()} Wins!`);
+        result.innerHTML = `${player1.getName()} WINS!`;
+        result.style.cssText = "background-color:gold;";
+        counter = 1;
+        displayController.updatePlayer(player1);
+        Gameboard.reset();
       }
       if (player2.checkWin()) {
-        alert(`${player2.getName()} Wins!`);
+        result.innerHTML = `${player1.getName()} WINS!`;
+        result.style.cssText = "background-color:gold;";
+        counter = 1;
+        displayController.updatePlayer(player2);
+        Gameboard.reset();
       }
     });
   });

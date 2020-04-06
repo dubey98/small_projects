@@ -1,9 +1,10 @@
-body {
-  background-color: rgb(0, 0, 0, 0.5);
-}
-
 h1 {
   margin: auto;
+  text-align: center;
+  padding: 10px;
+}
+
+div {
   text-align: center;
 }
 
@@ -12,14 +13,12 @@ h1 {
   width: auto;
   margin: 0px;
   display: flex;
-  justify-content: space-between;
-  background-color: darkgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .gamepad {
-  height: 312px;
-  width: 312px;
-  background-color: gray;
+  height: 325px;
+  width: 325px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -27,21 +26,46 @@ h1 {
   border: 10px solid white;
 }
 
-.box {
+.sign {
+  font-size: 32px;
+}
+
+.gamebox {
   height: 100px;
   width: 100px;
-  background-color: blanchedalmond;
+  background-color: rgba(43, 235, 107, 0.5);
   text-align: center;
+  border-radius: 10px;
+  font-size: 75px;
 }
+
 
 p {
   text-align: center;
 }
 
-.sign {
-  font-size: 32px;
+.player {
+  border: 2px solid black;
+  flex-grow: 1;
+  margin: 5px;
+  border-radius: 10px;
 }
 
-.player {
-  width: 50px;
+#X {
+  background-color: indigo;
+  color: white;
+}
+
+#O {
+  color: white;
+  background-color: red;
+}
+
+.result {
+  flex-grow: 3;
+  border: 2px solid black;
+  margin: 5px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
 }
