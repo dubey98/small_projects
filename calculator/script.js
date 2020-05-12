@@ -102,7 +102,9 @@ function calculator() {
                 display.innerHTML = output;
                 input = "";
             } else if (e.toElement.className === "num") {
-                let temp = e.toElement.id;
+                let temp;
+                if(e.toElement.id === "zero")temp = "0";
+                else  temp = e.toElement.id;
                 input += temp;
                 display.innerHTML = input;
             } else {
